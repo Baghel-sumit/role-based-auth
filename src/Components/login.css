@@ -1,0 +1,45 @@
+.login-page {
+    padding: 20px 10px;
+}
+
+.login-page form {
+    width: 100%;
+}
+
+.login-page input[type=text],
+.login-page input[type=password] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login-page button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-page button:hover {
+    opacity: 0.8;
+}
+
+.login-page span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    .login-page span.psw {
+        display: block;
+        float: none;
+    }
+
+}

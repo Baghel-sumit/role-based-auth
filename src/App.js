@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Components/Login';
+import Dashboard from './Components/Dashboard';
+import Header from './Components/Header';
+import CreateUser from './Components/CreateUser';
+import { AbilityContext } from './Components/Abilities';
+import { createMongoAbility } from '@casl/ability';
 
-function App() {
+const ability = new createMongoAbility();
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AbilityContext.Provider value={ability}>
+      <BrowserRouter>
+          <Header/>
+          <Routes>
+              <Route exact path='/login' element={<Login ability={ability}/>}/>
+              <Route exact path='/' element={<Dashboard/>}/>
+              <Route exact path='/create-user' element={<CreateUser/>}/>
+          </Routes>
+      </BrowserRouter>
+    </AbilityContext.Provider>
+  )
 }
 
-export default App;
+export default App
